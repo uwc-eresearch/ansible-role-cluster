@@ -1,0 +1,12 @@
+---
+
+- name: Load variables
+  include_vars: "{{ lookup('first_found', possible_files) }}"
+  vars:
+    possible_files:
+      - "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yaml"
+      - "{{ ansible_distribution }}.yaml"
+      - "{{ ansible_os_family }}.yaml"
+
+- name: Install software via package manager
+  include_tasks: software_install.yml

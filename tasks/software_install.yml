@@ -1,0 +1,5 @@
+- name: Ensure packages via generic manager
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ software_list }}"

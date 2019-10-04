@@ -1,0 +1,6 @@
+software_list:
+  - openmpi-bin
+  - openmpi-common
+  - python
+  - nfs-common
+  

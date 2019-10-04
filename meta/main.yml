@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Eugene de Beste
+  description: Configures software stack and kernel config for HPC
+  company: "University of the Western Cape"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 16.04
+        - 18.04
+  galaxy_tags:
+    - system
+    - kernel
+    - software
+    - apt
+    - cluster
+    - HPC
