@@ -4,9 +4,9 @@
   include_vars: "{{ lookup('first_found', possible_files) }}"
   vars:
     possible_files:
-      - "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yaml"
-      - "{{ ansible_distribution }}.yaml"
-      - "{{ ansible_os_family }}.yaml"
+      - "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
+      - "{{ ansible_distribution }}.yml"
+      - "{{ ansible_os_family }}.yml"
 
 - name: Install software via package manager
   include_tasks: software_install.yml
