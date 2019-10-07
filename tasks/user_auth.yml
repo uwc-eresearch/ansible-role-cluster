@@ -1,6 +1,6 @@
 - name: Ensure directories
   file:
-    path: "/var/local/keys-sync/"
+    path: "/var/local/keys-sync/.ssh"
     state: directory
 
 - name: Template out files
@@ -18,10 +18,10 @@
   lineinfile:
     create: yes
     state: present
-    mode: 0700
+    mode: 0600
     owner: keys-sync
     group: keys-sync
-    path: /var/local/keys-sync/keys-sync
+    path: /var/local/keys-sync/.ssh/authorized_keys
     line: "{{ keys_sync_ssh_public_key }}"
 
 - name: Ensure group "keys-sync" exists
