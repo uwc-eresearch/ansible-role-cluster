@@ -3,3 +3,4 @@ gitea_auth_token:
 gitea_server_url: 
 gitea_server_port:
 keys_sync_ssh_public_key:
+ubuntu_ssh_public_key:

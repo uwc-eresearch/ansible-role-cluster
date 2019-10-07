@@ -3,4 +3,5 @@ software_list:
   - openmpi-common
   - python
   - nfs-common
-  
+  - jq
+  - curl
