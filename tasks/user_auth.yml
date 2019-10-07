@@ -19,6 +19,8 @@
     create: yes
     state: present
     mode: 0700
+    owner: keys-sync
+    group: keys-sync
     path: /var/local/keys-sync/keys-sync
     line: "{{ keys_sync_ssh_public_key }}"
 
