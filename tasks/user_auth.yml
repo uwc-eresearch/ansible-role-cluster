@@ -6,19 +6,21 @@
 - name: Template out files
   template:
     src: "{{ role_path }}/files/user_creation/{{ item }}"
-    dest: "{{ item }}"
+    dest: '{{ item }}'
   loop:
     - "/etc/ssh/sshd_config"
     - "/etc/sudoers"
     - "/root/authkeyscommand.sh"
-    - "/var/local/keys-sync/keys-sync"
   notify:
     - ssh-restart
 
-- name: Ensure permission
-  file:
-    path: /var/local/keys-sync/keys-sync
+- name: Template out keys-sync
+  lineinfile:
+    create: yes
+    state: present
     mode: 0700
+    path: /var/local/keys-sync/keys-sync
+    line: "{{ keys_sync_ssh_public_key }}"
 
 - name: Ensure group "keys-sync" exists
   group:
