@@ -1,0 +1,35 @@
+- name: Ensure directories
+  file:
+    path: "/var/local/keys-sync/"
+    state: directory
+
+- name: Template out files
+  template:
+    src: "{{ role_path }}/files/user_creation/{{ item }}"
+    dest: "{{ item }}"
+  loop:
+    - "/etc/ssh/sshd_config"
+    - "/etc/sudoers"
+    - "/root/authkeyscommand.sh"
+    - "/var/local/keys-sync/keys-sync"
+  notify:
+    - ssh-restart
+
+- name: Ensure permission
+  file:
+    path: /var/local/keys-sync/keys-sync
+    mode: 0700
+
+- name: Ensure group "keys-sync" exists
+  group:
+    name: keys-sync
+    state: present
+    gid: 9000
+
+- name: Ensure user "keys-sync" exists
+  user:
+    name: keys-sync
+    groups: keys-sync
+    home: "/var/local/keys-sync"
+    shell: /bin/sh
+    uid: 9000

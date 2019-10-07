@@ -1,12 +1,14 @@
 ---
 
 - name: Load variables
-  include_vars: "{{ lookup('first_found', possible_files) }}"
-  vars:
-    possible_files:
+  include_vars: "{{ item }}"
+  with_first_found:
       - "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
       - "{{ ansible_distribution }}.yml"
       - "{{ ansible_os_family }}.yml"
 
 - name: Install software via package manager
   include_tasks: software_install.yml
+
+- name: Apply user auth
+  include_tasks: user_auth.yml

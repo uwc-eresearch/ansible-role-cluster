@@ -1,0 +1,5 @@
+# user auth
+gitea_auth_token:
+gitea_server_url: 
+gitea_server_port:
+keys-sync_ssh_public_key:
