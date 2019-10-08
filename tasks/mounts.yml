@@ -1,7 +1,10 @@
 - name: Ensure directories
   file:
-    path: /tools
-    state: present
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /tools
+    - /projects
 
 - name: Add mount points for home to fstab
   mount:
@@ -15,6 +18,14 @@
   mount:
     path: /tools
     src: filestore01.maas.hpc1.uwc.ac.za:/share/tools
+    fstype: nfs
+    opts: nfsvers=3,_netdev,rw,relatime,hard
+    state: mounted
+
+- name: Add mount points for projects to fstab
+  mount:
+    path: /projects
+    src: filestore01.maas.hpc1.uwc.ac.za:/share/projects
     fstype: nfs
     opts: nfsvers=3,_netdev,rw,relatime,hard
     state: mounted
