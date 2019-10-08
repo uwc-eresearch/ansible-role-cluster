@@ -3,7 +3,7 @@
     path: "{{ item }}"
     state: directory
   loop:
-    - /tools
+    - /software
     - /projects
 
 - name: Add mount points for home to fstab
@@ -16,7 +16,7 @@
 
 - name: Add mount points for tools to fstab
   mount:
-    path: /tools
+    path: /software
     src: filestore01.maas.hpc1.uwc.ac.za:/share/tools
     fstype: nfs
     opts: nfsvers=3,_netdev,rw,relatime,hard
