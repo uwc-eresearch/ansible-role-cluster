@@ -12,3 +12,6 @@
 
 - name: Apply user auth
   include_tasks: user_auth.yml
+
+- name: Ensure shared mounts
+  include_tasks: mounts.yml

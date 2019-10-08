@@ -1,0 +1,20 @@
+- name: Ensure directories
+  file:
+    path: /tools
+    state: present
+
+- name: Add mount points for home to fstab
+  mount:
+    path: /home
+    src: filestore01.maas.hpc1.uwc.ac.za:/share/people
+    fstype: nfs
+    opts: nfsvers=3,_netdev,rw,relatime,hard
+    state: mounted
+
+- name: Add mount points for tools to fstab
+  mount:
+    path: /tools
+    src: filestore01.maas.hpc1.uwc.ac.za:/share/tools
+    fstype: nfs
+    opts: nfsvers=3,_netdev,rw,relatime,hard
+    state: mounted
