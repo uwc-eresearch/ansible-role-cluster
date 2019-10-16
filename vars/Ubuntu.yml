@@ -3,8 +3,13 @@ software_list:
   - openmpi-common
   - python
   - nfs-common
+<<<<<<< HEAD
   - libnss-ldap
   - libpam-ldap
   - ldap-utils
   - nscd
   
+=======
+  - jq
+  - curl
+>>>>>>> 7b571b816b57e013c37c738f9b410f4df77569b7

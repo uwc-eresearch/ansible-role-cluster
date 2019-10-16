@@ -13,5 +13,10 @@
 - name: Apply user auth
   include_tasks: user_auth.yml
 
+<<<<<<< HEAD
 - name: Apply LDAP config
   include_tasks: ldap.yml
+=======
+- name: Ensure shared mounts
+  include_tasks: mounts.yml
+>>>>>>> 7b571b816b57e013c37c738f9b410f4df77569b7

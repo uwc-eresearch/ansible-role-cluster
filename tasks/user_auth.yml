@@ -18,11 +18,26 @@
   lineinfile:
     create: yes
     state: present
-    mode: 0600
+    mode: 0644
     owner: keys-sync
     group: keys-sync
-    path: /var/local/keys-sync/.ssh/authorized_keys
+    path: /var/local/keys-sync/keys-sync
     line: "{{ keys_sync_ssh_public_key }}"
+
+- name: Template out ubuntu user
+  lineinfile:
+    create: yes
+    state: present
+    mode: 0644
+    owner: keys-sync
+    group: keys-sync
+    path: /var/local/keys-sync/ubuntu
+    line: "{{ ubuntu_ssh_public_key }}"
+
+- name: Ensure correct permissions
+  file:
+    path: /root/authkeyscommand.sh
+    mode: 0700
 
 - name: Ensure group "keys-sync" exists
   group:
