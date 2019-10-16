@@ -12,3 +12,6 @@
 
 - name: Apply user auth
   include_tasks: user_auth.yml
+
+- name: Apply LDAP config
+  include_tasks: ldap.yml

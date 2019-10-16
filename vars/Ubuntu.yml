@@ -3,4 +3,8 @@ software_list:
   - openmpi-common
   - python
   - nfs-common
+  - libnss-ldap
+  - libpam-ldap
+  - ldap-utils
+  - nscd
   
