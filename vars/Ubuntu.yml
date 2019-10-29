@@ -9,3 +9,21 @@ software_list:
   - libpam-ldap
   - ldap-utils
   - nscd
+  - wget
+  - htop
+  - git
+  - ldap-utils
+  - lmod
+  - sshfs
+  - libelf-dev
+  - language-pack-en
+  - x11-common
+  - hwloc
+  - libssh2-1
+  - cgroup-bin
+  - cgroup-lite
+  - cgroup-tools
+  - cgroupfs-mount
+  - libcgroup1
+  - virtualenv
+  - tcsh
