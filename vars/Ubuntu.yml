@@ -13,7 +13,6 @@ software_list:
   - htop
   - git
   - ldap-utils
-  - lmod
   - sshfs
   - libelf-dev
   - language-pack-en
