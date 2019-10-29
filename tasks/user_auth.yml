@@ -11,6 +11,7 @@
     - "/etc/ssh/sshd_config"
     - "/etc/sudoers"
     - "/root/authkeyscommand.sh"
+    - "/etc/adduser.conf"
   notify:
     - ssh-restart
 
@@ -52,3 +53,8 @@
     home: "/var/local/keys-sync"
     shell: /bin/sh
     uid: 9000
+
+- name: Ensure permission on adduser
+  file:
+    path: /etc/adduser.conf
+    mode: 0644
