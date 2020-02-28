@@ -26,3 +26,4 @@ software_list:
   - libcgroup1
   - virtualenv
   - tcsh
+  - default-jre
