@@ -9,9 +9,9 @@
 - name: Add mount points for home to fstab
   mount:
     path: /home
-    src: filestore01.maas.hpc1.uwc.ac.za:/share/people
+    src: filestore01.maas.hpc1.uwc.ac.za:/share/users
     fstype: nfs
-    opts: nfsvers=3,_netdev,rw,relatime,hard,async,rsize=65536,wsize=65536
+    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
     state: mounted
 
 - name: Add mount points for tools to fstab
@@ -19,7 +19,7 @@
     path: /software
     src: filestore01.maas.hpc1.uwc.ac.za:/share/tools
     fstype: nfs
-    opts: nfsvers=3,_netdev,rw,relatime,hard,async,rsize=65536,wsize=65536
+    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
     state: mounted
 
 - name: Add mount points for projects to fstab
@@ -27,5 +27,5 @@
     path: /projects
     src: filestore01.maas.hpc1.uwc.ac.za:/share/projects
     fstype: nfs
-    opts: nfsvers=3,_netdev,rw,relatime,hard,async,rsize=65536,wsize=65536
+    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
     state: mounted
