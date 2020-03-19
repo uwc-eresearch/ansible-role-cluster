@@ -21,4 +21,4 @@
 
 - name: Apply motd
   include_tasks: motd.yml
-  when: headnode == True
+  when: headnode is defined

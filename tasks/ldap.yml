@@ -12,6 +12,10 @@
     - "ldap.secret"
     - "/ldap/ldap.conf"
     - "/pam.d/common-session"
+  notify:
+      - auth-client-config
+      - pam-auth-update
+      - nscd-restart
 
 - name: Set permission on ldap_secret
   file:
@@ -22,11 +26,3 @@
   file:
     mode: 0644
     path: /etc/pam.d/common-session
-
-- name: Run auth-client-config
-  shell: "auth-client-config -t nss -p lac_ldap"
-
-- name: Run pam-auth-update
-  shell: "pam-auth-update --enable mkhomedir"
-  notify:
-    - nscd-restart
