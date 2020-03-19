@@ -1,0 +1,21 @@
+- name: Disable default motd for Ubuntu
+  file:
+    path: /etc/update-motd.d
+    state: directory
+    recurse: yes
+    mode: a-x
+
+- name: Ensure motd dir executable
+  file:  
+    path: /etc/update-motd.d
+    state: directory
+    recurse: no
+    mode: a+x
+  changed_when: False
+
+- name: Template out motd
+  template:
+    src: "{{role_path}}/files/motd/01-custom.j2"
+    dest: /etc/update-motd.d/01-custom
+    owner: root
+    mode: a+x
