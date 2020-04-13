@@ -18,3 +18,7 @@
 
 - name: Apply LDAP config
   include_tasks: ldap.yml
+
+- name: Apply motd
+  include_tasks: motd.yml
+  when: headnode is defined

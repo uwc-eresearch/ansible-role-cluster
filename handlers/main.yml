@@ -1,12 +1,18 @@
-- name: ssh-restart
-  service:
-    name: sshd
-    state: restarted
-    enabled: true
+- name: auth-client-config
+  shell: "auth-client-config -t nss -p lac_ldap"
+
+- name: pam-auth-update
+  shell: "pam-auth-update --enable mkhomedir"
 
 - name: nscd-restart
   service:
     name: nscd
+    state: restarted
+    enabled: true
+
+- name: ssh-restart
+  service:
+    name: sshd
     state: restarted
     enabled: true
 
