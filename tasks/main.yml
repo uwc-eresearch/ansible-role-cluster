@@ -1,5 +1,9 @@
 ---
 
+- name: Set timezone to Africa/Johannesburg
+  timezone:
+    name: Africa/Johannesburg
+
 - name: Load variables
   include_vars: "{{ item }}"
   with_first_found:
