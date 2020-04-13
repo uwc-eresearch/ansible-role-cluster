@@ -2,9 +2,16 @@
   service:
     name: sshd
     state: restarted
+    enabled: true
 
 - name: nscd-restart
   service:
     name: nscd
+    state: restarted
+    enabled: true
+
+- name: ntp-restart
+  service:
+    name: ntp
     state: restarted
     enabled: true

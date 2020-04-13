@@ -3,3 +3,13 @@
     name: "{{ item }}"
     state: present
   loop: "{{ software_list }}"
+
+- name: Configure NTP
+  template:
+    src: "{{ role_path }}/files/ntp/ntp.conf.j2"
+    dest: /etc/ntp.conf
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - ntp-restart

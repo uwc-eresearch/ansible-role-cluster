@@ -9,3 +9,4 @@ software_list:
   - libpam-ldap
   - ldap-utils
   - nscd
+  - ntp
