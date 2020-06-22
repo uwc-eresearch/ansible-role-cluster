@@ -17,6 +17,7 @@ software_list:
   - libelf-dev
   - language-pack-en
   - x11-common
+  - xauth
   - hwloc
   - libssh2-1
   - cgroup-bin

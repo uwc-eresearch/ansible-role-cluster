@@ -1,31 +1,31 @@
 - name: Ensure directories
   file:
-    path: "{{ item }}"
+    path: "share"
     state: directory
-  loop:
-    - /software
-    - /projects
 
-- name: Add mount points for home to fstab
+- name: Add global mount point for home to fstab
   mount:
-    path: /home
+    path: /share
     src: 10.50.0.2:/users
     fstype: nfs
-    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
+    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async
     state: mounted
 
-- name: Add mount points for tools to fstab
-  mount:
-    path: /software
-    src: 10.50.0.2:/software
-    fstype: nfs
-    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
-    state: mounted
+- name: Symlink share dirs
+  file:
+    src: "/share/{{ item }}"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    state: link
+  loop:
+    - "projects"
+    - "software"
 
-- name: Add mount points for projects to fstab
-  mount:
-    path: /projects
-    src: 10.50.0.2:/projects
-    fstype: nfs
-    opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async,rsize=65536,wsize=65536
-    state: mounted
+- name: Symlink home dir
+  file:
+    src: "/share/people"
+    dest: /home
+    owner: root
+    group: root
+    state: link
