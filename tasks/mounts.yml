@@ -6,7 +6,7 @@
 - name: Add global mount point for home to fstab
   mount:
     path: /share
-    src: 10.50.0.2:/users
+    src: 10.50.0.2:/share
     fstype: nfs
     opts: v4.1,_netdev,rw,timeo=600,hard,intr,relatime,async
     state: mounted
