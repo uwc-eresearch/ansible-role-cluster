@@ -3,6 +3,20 @@
     path: "/var/local/keys-sync/.ssh"
     state: directory
 
+- name: Ensure group "keys-sync" exists
+  group:
+    name: keys-sync
+    state: present
+    gid: 9000
+
+- name: Ensure user "keys-sync" exists
+  user:
+    name: keys-sync
+    groups: keys-sync
+    home: "/var/local/keys-sync"
+    shell: /bin/sh
+    uid: 9000
+
 - name: Template out files
   template:
     src: "{{ role_path }}/files/user_creation/{{ item }}"
@@ -39,20 +53,6 @@
   file:
     path: /root/authkeyscommand.sh
     mode: 0700
-
-- name: Ensure group "keys-sync" exists
-  group:
-    name: keys-sync
-    state: present
-    gid: 9000
-
-- name: Ensure user "keys-sync" exists
-  user:
-    name: keys-sync
-    groups: keys-sync
-    home: "/var/local/keys-sync"
-    shell: /bin/sh
-    uid: 9000
 
 - name: Ensure permission on adduser
   file:

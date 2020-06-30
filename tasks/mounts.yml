@@ -1,6 +1,6 @@
 - name: Ensure directories
   file:
-    path: "share"
+    path: "/share"
     state: directory
 
 - name: Add global mount point for home to fstab
