@@ -22,10 +22,10 @@
     - "projects"
     - "software"
 
-- name: Symlink home dir
-  file:
-    src: "/share/people"
-    dest: /home
-    owner: root
-    group: root
-    state: link
+# - name: Symlink home dir
+#   file:
+#     src: "/share/people"
+#     dest: /home
+#     owner: root
+#     group: root
+#     state: link
